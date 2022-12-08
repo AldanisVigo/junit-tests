@@ -24,4 +24,19 @@ public class Cohort {
     public List<Student> getStudents() {
         return students;
     }
+
+    public Student findStudentById(long id){
+        Student match = null;
+        for(Student student : this.students){
+            if(student.getId() == id){
+                match = student;
+                break;
+            }
+        }
+        if(match != null){
+            return match;
+        }else{
+            throw new IndexOutOfBoundsException();
+        }
+    }
 }
